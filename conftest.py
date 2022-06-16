@@ -10,6 +10,6 @@ def init_config():
     config.window_height = 1080
 
 
-@pytest.fixture(scope="session", autouse=True)
+@pytest.fixture(scope="function", autouse=True)
 def open_browser(init_config):
     browser.open('https://google.com')
