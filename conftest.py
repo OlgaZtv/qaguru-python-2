@@ -2,7 +2,7 @@ import pytest
 from selene.support.shared import config, browser
 
 
-@pytest.fixture(scope='function', autouse=False)
+@pytest.fixture(scope="session", autouse=True)
 def init_config():
     browser.config.browser_name = 'chrome'
     config.timeout = 2
@@ -10,6 +10,6 @@ def init_config():
     config.window_height = 1080
 
 
-@pytest.fixture(scope='function', autouse=False)
+@pytest.fixture(scope="session", autouse=True)
 def open_browser(init_config):
     browser.open('https://google.com')
